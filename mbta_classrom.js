@@ -29,4 +29,10 @@ var tester = function () {
   console.log("* should return -1, actually returns " + find(['a', 'b', 'c'], 'z'));
   console.log("sameLineDistance");
   console.log("should return 1, actually returns " + sameLineDistance(red, "south station", "park st"));
+  console.log("distance");
+  console.log("should return 2, actually returns " + distance(red, "harvard", red, "kendall"));
+  console.log("should return 5, actually returns " + distance(red, "harvard", green, "arlington"));
+  console.log("should return 3, actually returns " + distance(green, "copley", orange, "park st"));
 };
+
+tester();
