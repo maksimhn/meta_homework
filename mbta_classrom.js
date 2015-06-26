@@ -5,7 +5,7 @@ var orange = ["north station", "haymarket", "park st", "state", "downtown crossi
 
 var find = function (array, value) {
   for (var i = 0; i < array.length; i++) {
-    if (array[i] === i) {
+    if (array[i] === value) {
       return i;
     }
   }
@@ -15,13 +15,27 @@ var find = function (array, value) {
 var sameLineDistance = function (line, firstStop, secondStop) {
   // find the indices of first and second stop and subtract them
   var diff = find(line, firstStop) - find(line, secondStop);
-  if (diff <0) {
+  if (diff < 0) {
     diff *= -1;
   }
   return diff;
   // ternary operator:
   // (diff > 0) ? diff : -diff;
 };
+
+
+
+var distance = function(firstLine, firstStop, secondLine, secondStop) {
+  // Same-line case
+  if (firstLine === secondLine) {
+    return sameLineDistance(firstLine, firstStop, secondStop);
+  } else { // Different-lines case
+    return sameLineDistance(firstLine, firstStop, "park st") +
+           sameLineDistance(secondLine, secondStop, "park st");
+  }
+};
+
+
 
 var tester = function () {
   console.log("find");
